@@ -4,38 +4,42 @@
 <body>
     <div>
         <h1>Lettura file JSON</h1>
-        <input type="button" onclick="loadData()" value="Mostra dati">
-        <div id="result" style="display: none;"></div>
+        <input type="button" onclick="caricaDati()" value="Mostra dati">
     </div>
-
     <script>
-        function loadData() {
-            var request = new XMLHttpRequest();
-            request.open("GET", "https://raw.githubusercontent.com/Mattia-Visentin/mattiavise/refs/heads/main/JSON/Anagrafica.json", true);
-            request.send();
-            request.onreadystatechange = function() {
+        function caricaDati() {
+            var file = new XMLHttpRequest();
+            file.open("GET", "Anagrafica.json", true);
+            file.send();
+            file.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    var data = JSON.parse(request.responseText);
-                    displayData(data);
+                    var jsonDoc = JSON.parse(file.responseText);
+                    mostraInfo(jsonDoc);
                 }
             };
-            document.getElementById("result").style.display = "block";
+            document.getElementById("risForm").style.visibility = "visible";
         }
 
-        function displayData(data) {
-            var table = document.createElement("table");
+        function mostraInfo(data) {
+            var tabella = document.createElement("table");
 
-            for (let i = 0; i < 3; i++) {
-                var row = document.createElement("tr");
-                var cell = document.createElement("td");
+            var colonna = document.createElement("tr");
+            var righe = document.createElement("td");
 
-                cell.textContent = `${data.Nomi[i].Nome}, ${data.Cognomi[i].Cognome}, ${data.Eta[i].Eta}, ${data.Indirizzi[i].Indirizzo}, ${data.Citta[i].Citta}, Telefono1: ${data.Telefoni[0].Telefoni[i].Telefono1}, Telefono2: ${data.Telefoni[0].Telefoni[i].Telefono2}, Sport1: ${data.Sport[0].Sport[i].Sport1}, Sport2: ${data.Sport[0].Sport[i].Sport2}`;
+            righe.appendChild(document.createTextNode(data.nome + ", "));
+            righe.appendChild(document.createTextNode(data.cognome + ", "));
+            righe.appendChild(document.createTextNode(data.età + ", "));
+            righe.appendChild(document.createTextNode(data.indirizzo + ", "));
+            righe.appendChild(document.createTextNode(data.citta + ", "));
+            righe.appendChild(document.createTextNode("Telefono1: " + data.telefoni.telefono1 + ", "));
+            righe.appendChild(document.createTextNode("Telefono2: " + data.telefoni.telefono2 + ", "));
+            righe.appendChild(document.createTextNode("Sport1: " + data.sport.sport1 + ", "));
+            righe.appendChild(document.createTextNode("Sport2: " + data.sport.sport2 + " "));
 
-                row.appendChild(cell);
-                table.appendChild(row);
-            }
+            colonna.appendChild(righe);
+            tabella.appendChild(colonna);
 
-            document.getElementById("result").appendChild(table);
+            document.getElementById("stringaJSON").appendChild(tabella);
         }
     </script>
 </body>
