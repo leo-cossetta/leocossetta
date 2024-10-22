@@ -7,11 +7,9 @@
         <h1>Lettura file JSON</h1>
         <input type="button" onclick="MostraDati()" value="Mostra dati">
     </div>
-    <div id="risForm" style="visibility: hidden;">
-    
-                <div id="stringaJSON"> </div>
-            
-            </div>
+    <div id="Ris" style="visibility:hidden;">
+        <div id="stringaJSON"></div>
+    </div>
     <script>
         function MostraDati() {
             var file = new XMLHttpRequest();
@@ -21,29 +19,29 @@
                 if (this.readyState == 4 && this.status == 200) {
                     var jsonDoc = JSON.parse(file.responseText);
                     mostraInfo(jsonDoc);
+                    document.getElementById("Ris").style.visibility = "visible";
                 }
             };
         }
 
         function mostraInfo(data) {
             var tabella = document.createElement("table");
+            var intestazione = document.createElement("tr");
+
+
 
             var colonna = document.createElement("tr");
-            var riga = document.createElement("td");
+            colonna.appendChild(document.createTextNode(data.nome));
+            colonna.appendChild(document.createTextNode(data.cognome));
+            colonna.appendChild(document.createTextNode(data.età));
+            colonna.appendChild(document.createTextNode(data.indirizzo));
+            colonna.appendChild(document.createTextNode(data.citta));
+            colonna.appendChild(document.createTextNode(data.telefoni.telefono1));
+            colonna.appendChild(document.createTextNode(data.telefoni.telefono2));
+            colonna.appendChild(document.createTextNode(data.sport.sport1));
+            colonna.appendChild(document.createTextNode(data.sport.sport2));
 
-            righe.appendChild(document.createTextNode(data.nome + ", "));
-            righe.appendChild(document.createTextNode(data.cognome + ", "));
-            righe.appendChild(document.createTextNode(data.età + ", "));
-            righe.appendChild(document.createTextNode(data.indirizzo + ", "));
-            righe.appendChild(document.createTextNode(data.citta + ", "));
-            righe.appendChild(document.createTextNode("Telefono1: " + data.telefoni.telefono1 + ", "));
-            righe.appendChild(document.createTextNode("Telefono2: " + data.telefoni.telefono2 + ", "));
-            righe.appendChild(document.createTextNode("Sport1: " + data.sport.sport1 + ", "));
-            righe.appendChild(document.createTextNode("Sport2: " + data.sport.sport2 + " "));
-
-            colonna.appendChild(riga);
             tabella.appendChild(colonna);
-
             document.getElementById("stringaJSON").appendChild(tabella);
         }
     </script>
