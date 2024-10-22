@@ -1,0 +1,16 @@
+{
+    "nome":"Leonardo",
+    "cognome": "Cossetta",
+    "età":22,
+
+    "indirizzo": "via milano 2",
+    "citta": "Milano",
+    "telefoni": {
+        "telefono1": "123456789",
+        "telefono2": "987654321"
+    },
+    "sport":{
+        "sport1": "calcio",
+        "sport2": "basket"
+    } 
+}
