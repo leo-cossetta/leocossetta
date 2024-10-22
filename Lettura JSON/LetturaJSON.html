@@ -1,14 +1,19 @@
 <html>
 <head>
-    <title>Anagrafica JSON</title>
+    <title>Lettura file JSON</title>
 </head>
 <body>
     <div>
         <h1>Lettura file JSON</h1>
-        <input type="button" onclick="caricaDati()" value="Mostra dati">
+        <input type="button" onclick="MostraDati()" value="Mostra dati">
     </div>
+    <div id="risForm" style="visibility: hidden;">
+    
+                <div id="stringaJSON"> </div>
+            
+            </div>
     <script>
-        function caricaDati() {
+        function MostraDati() {
             var file = new XMLHttpRequest();
             file.open("GET", "Anagrafica.json", true);
             file.send();
@@ -18,14 +23,13 @@
                     mostraInfo(jsonDoc);
                 }
             };
-            document.getElementById("risForm").style.visibility = "visible";
         }
 
         function mostraInfo(data) {
             var tabella = document.createElement("table");
 
             var colonna = document.createElement("tr");
-            var righe = document.createElement("td");
+            var riga = document.createElement("td");
 
             righe.appendChild(document.createTextNode(data.nome + ", "));
             righe.appendChild(document.createTextNode(data.cognome + ", "));
@@ -37,7 +41,7 @@
             righe.appendChild(document.createTextNode("Sport1: " + data.sport.sport1 + ", "));
             righe.appendChild(document.createTextNode("Sport2: " + data.sport.sport2 + " "));
 
-            colonna.appendChild(righe);
+            colonna.appendChild(riga);
             tabella.appendChild(colonna);
 
             document.getElementById("stringaJSON").appendChild(tabella);
