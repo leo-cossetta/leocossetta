@@ -1,35 +1,42 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="Style.css">
-    </head>
+<head>
+    <title>Anagrafica JSON</title>
+</head>
+<body>
+    <div>
+        <h1>Lettura file JSON</h1>
+        <input type="button" onclick="loadData()" value="Mostra dati">
+        <div id="result" style="display: none;"></div>
+    </div>
 
-    <body>
+    <script>
+        function loadData() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "https://raw.githubusercontent.com/Mattia-Visentin/mattiavise/refs/heads/main/JSON/Anagrafica.json", true);
+            request.send();
+            request.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    displayData(data);
+                }
+            };
+            document.getElementById("result").style.display = "block";
+        }
 
-        <div class="generale"> 
+        function displayData(data) {
+            var table = document.createElement("table");
 
+            for (let i = 0; i < 3; i++) {
+                var row = document.createElement("tr");
+                var cell = document.createElement("td");
 
-            <div class="form">
+                cell.textContent = `${data.Nomi[i].Nome}, ${data.Cognomi[i].Cognome}, ${data.Eta[i].Eta}, ${data.Indirizzi[i].Indirizzo}, ${data.Citta[i].Citta}, Telefono1: ${data.Telefoni[0].Telefoni[i].Telefono1}, Telefono2: ${data.Telefoni[0].Telefoni[i].Telefono2}, Sport1: ${data.Sport[0].Sport[i].Sport1}, Sport2: ${data.Sport[0].Sport[i].Sport2}`;
 
-                
-            <h1 class="Titolo"> Anagrafica JSON </h1>
+                row.appendChild(cell);
+                table.appendChild(row);
+            }
 
-            <input type="button" onclick="caricaDati()" value="Carica dati">
-
-            </div>
-
-            <br>
-
-            <div id="risForm" style="visibility: hidden;">
-    
-                <div id="stringaJSON"> </div>
-            
-            </div>
-
-        </div>
-        
-        
-    </body>
-
-    <script src="LetturaJSON.js"> </script>
-
+            document.getElementById("result").appendChild(table);
+        }
+    </script>
+</body>
 </html>
