@@ -13,7 +13,7 @@
     <script>
         function MostraDati() {
             var file = new XMLHttpRequest();
-            file.open("GET", "Anagrafica.json", true);
+            file.open("GET", "dati_personali.json", true);
             file.send();
             file.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
