@@ -13,7 +13,7 @@
     <script>
         function MostraDati() {
             var file = new XMLHttpRequest();
-            file.open("GET", "dati_personali.json", true);
+            file.open("GET", "https://raw.githubusercontent.com/leo-cossetta/leocossetta/refs/heads/main/LetturaJSON/dati_personali.json", true);
             file.send();
             file.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
