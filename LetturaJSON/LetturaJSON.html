@@ -31,15 +31,15 @@
 
 
             var colonna = document.createElement("tr");
-            colonna.appendChild(document.createTextNode(data.nome + ", " )); 
-            colonna.appendChild(document.createTextNode(data.cognome + ", "));
-            colonna.appendChild(document.createTextNode(data.età + ", "));
-            colonna.appendChild(document.createTextNode(data.indirizzo + ", "));
-            colonna.appendChild(document.createTextNode(data.citta + ", "));
-            colonna.appendChild(document.createTextNode(data.telefoni.telefono1 + ", "));
-            colonna.appendChild(document.createTextNode(data.telefoni.telefono2 + ", "));
-            colonna.appendChild(document.createTextNode(data.sport.sport1 + ", "));
-            colonna.appendChild(document.createTextNode(data.sport.sport2 + ", "));
+            colonna.appendChild(document.createTextNode("Nome: " + data.nome + "; \n" )); 
+            colonna.appendChild(document.createTextNode("Cognome: " + data.cognome + "; \n"));
+            colonna.appendChild(document.createTextNode("Età: " + data.età + "; \n "));
+            colonna.appendChild(document.createTextNode("Indirizzo: " + data.indirizzo + "; \n"));
+            colonna.appendChild(document.createTextNode("Città: " + data.citta + "; \n "));
+            colonna.appendChild(document.createTextNode("Telefono 1: " + data.telefoni.telefono1 + "; \n "));
+            colonna.appendChild(document.createTextNode("Telefono 2: " + data.telefoni.telefono2 + "; \n "));
+            colonna.appendChild(document.createTextNode("Sport 1: " + data.sport.sport1 + "; \n "));
+            colonna.appendChild(document.createTextNode("Sport 2: " + data.sport.sport2 + "; \n "));
 
             tabella.appendChild(colonna);
             document.getElementById("stringaJSON").appendChild(tabella);
