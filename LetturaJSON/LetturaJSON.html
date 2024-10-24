@@ -11,7 +11,7 @@
         <div id="stringaJSON"></div>
     </div>
     <script>
-        function MostraDati() {
+       function MostraDati() {
             var file = new XMLHttpRequest();
             file.open("GET", "https://raw.githubusercontent.com/leo-cossetta/leocossetta/refs/heads/main/LetturaJSON/dati_personali.json", true);
             file.send();
@@ -31,15 +31,15 @@
 
 
             var colonna = document.createElement("tr");
-            colonna.appendChild(document.createTextNode(data.nome));
-            colonna.appendChild(document.createTextNode(data.cognome));
-            colonna.appendChild(document.createTextNode(data.età));
-            colonna.appendChild(document.createTextNode(data.indirizzo));
-            colonna.appendChild(document.createTextNode(data.citta));
-            colonna.appendChild(document.createTextNode(data.telefoni.telefono1));
-            colonna.appendChild(document.createTextNode(data.telefoni.telefono2));
-            colonna.appendChild(document.createTextNode(data.sport.sport1));
-            colonna.appendChild(document.createTextNode(data.sport.sport2));
+            colonna.appendChild(document.createTextNode(data.nome + ", " )); 
+            colonna.appendChild(document.createTextNode(data.cognome + ", "));
+            colonna.appendChild(document.createTextNode(data.età + ", "));
+            colonna.appendChild(document.createTextNode(data.indirizzo + ", "));
+            colonna.appendChild(document.createTextNode(data.citta + ", "));
+            colonna.appendChild(document.createTextNode(data.telefoni.telefono1 + ", "));
+            colonna.appendChild(document.createTextNode(data.telefoni.telefono2 + ", "));
+            colonna.appendChild(document.createTextNode(data.sport.sport1 + ", "));
+            colonna.appendChild(document.createTextNode(data.sport.sport2 + ", "));
 
             tabella.appendChild(colonna);
             document.getElementById("stringaJSON").appendChild(tabella);
