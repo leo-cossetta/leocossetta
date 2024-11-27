@@ -2,77 +2,77 @@
     "Anagrafica": [
         {
             "id": "1",
-            "Immagine": "Sara Rossi.webp",           
-            "Nome": "Sara",
-            "Cognome": "Rossi",
-            "Eta": "16",
-            "Indirizzo": "Via Milano",
-            "Citta": "Milano",
+            "Immagine": "",           
+            "Nome": "Leonardo",
+            "Cognome": "Cossetta",
+            "Eta": "18",
+            "Indirizzo": "Via settembrini 27",
+            "Citta": "Rho",
             "Telefoni": [
                 {
-                    "Telefono1": "6548585855"
+                    "Telefono1": "123456789"
                 },
                 {
-                    "Telefono2": "3787273278"
+                    "Telefono2": "987654321"
                 }
             ],
             "Sport": [               
                 {
-                    "Sport1": "Calcio"
+                    "Sport1": "Palestra"
                 },
                 {                    
-                    "Sport2": "Ippica"
+                    "Sport2": "Calcio"
                 }
             ]
         },
         {
             "id": "2",
-            "Immagine": "Antonio Rossi.webp",          
-            "Nome": "Antonio",
+            "Immagine": "",          
+            "Nome": "Mario",
             "Cognome": "Rossi",
-            "Eta": "21",
-            "Indirizzo": "Via Varese",
-            "Citta": "Novara",
+            "Eta": "18",
+            "Indirizzo": "Via roma 16",
+            "Citta": "Arese",
             "Telefoni": [
                 {
-                    "Telefono1": "8876876876"
+                    "Telefono1": "234567890"
                 },
                 {
-                    "Telefono2": "3787273278"
+                    "Telefono2": "098765432"
                 }
             ],
             "Sport": [            
                 {
-                    "Sport1": "Tennis"
+                    "Sport1": "Nuoto"
                 },
                 {                
-                    "Sport2": "Pallamano"
+                    "Sport2": "Rugby"
                 }
             ]
         },
         {   
             "id": "3",
-            "Immagine": "Filippo verdi.webp",            
-            "Nome": "Filippo",
+            "Immagine": "",            
+            "Nome": "Andrea",
             "Cognome": "Verdi",
-            "Eta": "26",
-            "Indirizzo": "Via Monza",
-            "Citta": "Lainate",
+            "Eta": "16",
+            "Indirizzo": "Via Arese 19",
+            "Citta": "Rho",
             "Telefoni": [
                 {
-                    "Telefono1": "7827798999"
+                    "Telefono1": "345678901"
                 },
 
                 {
-                    "Telefono2": "7868876868"
+                    "Telefono2": "109876543"
                 }
             ],
             "Sport": [                
                 {
-                    "Sport1": "Tennis"
+                    "Sport1": "Calcio"
                 },
                 {        
-                    "Sport2": "Badminghton"
+                    "Sport2": "Basket"
                 }
             ]
         }
