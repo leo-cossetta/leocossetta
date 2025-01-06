@@ -1,0 +1,44 @@
+<definitions name="servizioConverti"
+             targetNamespace="urn:servizioConverti"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="urn:servizioConverti"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <message name="ConvertiRequest">
+        <part name="Valore" type="xsd:float"/>
+        <part name="Valuta" type="xsd:string"/>
+    </message>
+    <message name="ConvertiResponse">
+        <part name="risultato" type="xsd:string"/>
+    </message>
+    <portType name="Converti_PortType">
+        <operation name="converti">
+            <documentation> Convertitore di valuta </documentation>
+            <input message="tns:ConvertiRequest"/>
+            <output message="tns:ConvertiResponse"/>
+        </operation>
+    </portType>
+    <binding name="Converti_Binding" type="tns:Converti_PortType">
+        <soap:binding style="rpc"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="converti">
+            <soap:operation soapAction="urn:servizioConverti#converti" />
+            <input>
+                <soap:body use="encoded" 
+                           namespace="urn:servizioConverti" 
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" 
+                           namespace="urn:servizioConverti" 
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="Converti_service">
+        <documentation>Server SOAP per la conversione valutaria</documentation>
+        <port binding="tns:Converti_Binding" name="Converti_Port">
+            <soap:address location="http://127.0.0.1/Convertitore/server/"/>
+        </port>
+    </service>
+</definitions>
