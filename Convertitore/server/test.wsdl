@@ -4,13 +4,16 @@
              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
              xmlns:tns="urn:servizioConverti"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
     <message name="ConvertiRequest">
         <part name="Valore" type="xsd:float"/>
         <part name="Valuta" type="xsd:string"/>
     </message>
+
     <message name="ConvertiResponse">
         <part name="risultato" type="xsd:string"/>
     </message>
+
     <portType name="Converti_PortType">
         <operation name="converti">
             <documentation> Convertitore di valuta </documentation>
@@ -18,6 +21,7 @@
             <output message="tns:ConvertiResponse"/>
         </operation>
     </portType>
+
     <binding name="Converti_Binding" type="tns:Converti_PortType">
         <soap:binding style="rpc"
                       transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -35,6 +39,7 @@
             </output>
         </operation>
     </binding>
+
     <service name="Converti_service">
         <documentation>Server SOAP per la conversione valutaria</documentation>
         <port binding="tns:Converti_Binding" name="Converti_Port">
