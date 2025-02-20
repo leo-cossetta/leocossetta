@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+  <title>Spotify Feed RSS</title>
+</head>
+<body>
+  <h2>Il mio feed spotify!</h2>
+  <div id="rss-feed">Caricamento...</div>
+  <script>
+    const rssUrl = "https://anchor.fm/s/10175a844/podcast/rss";
+    const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}';
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        let feedContainer = document.getElementById("rss-feed");
+        feedContainer.innerHTML = "";
+        data.items.forEach(item => {
+          let article = document.createElement("div");
+          article.classList.add("feed-item");
+          article.innerHTML = '<h3><a href="$(item.link}" target="_blank">${item.title}</a></h3>
+                               <p>${item.pubDate}</p>
+                               <p>${item.description}</p>';
+          feedContainer.appendChild(article);
+      });
+    })
+    .catch(error => {
+        document.getElementById("rss-feed").innerHTML = "Errore nel caricamento del feed.";
+        console.error("Errore nel caricamento del feed RSS:", error);
+    });
+  </script>
+</body>
+</html>
