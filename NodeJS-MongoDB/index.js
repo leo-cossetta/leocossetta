@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-mongoose.connect("mongodb+srv://********:*********@********.********.mongodb.net/")
+mongoose.connect("mongodb+srv://cossettaleonardo:xplTHrzmz2uETd2u@cluster0.hl4jhka.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     .then(() => console.log("Connesso"))
     .catch((err) => console.log("Errore: impossibile connettersi a MongoDB", err));
 const schema = new mongoose.Schema({
