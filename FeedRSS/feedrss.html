@@ -16,7 +16,7 @@
         data.items.forEach(item => {
           let article = document.createElement("div");
           article.classList.add("feed-item");
-          article.innerHTML = '<h3><a href="$(item.link}" target="_blank">${item.title}</a></h3>
+          article.innerHTML = '<h3><a href=$(item.link} target="_blank">${item.title}</a></h3>
                                <p>${item.pubDate}</p>
                                <p>${item.description}</p>';
           feedContainer.appendChild(article);
